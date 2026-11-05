@@ -1,0 +1,50 @@
+/* Shared by the IDS table pages. Identical in the ids-analytical-tables and ids-standard-tables repos. */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex; flex-direction: column;
+  font: 12px Arial, Helvetica, sans-serif; color: #444; background: #fff;
+}
+.band { background: #7d1a14; height: 8px; flex: none; }
+header { padding: 12px 16px 8px; flex: none; }
+h1 { margin: 0; font: 400 24px "Open Sans", Arial, sans-serif; color: #2b5d85; }
+h1 small { font-size: 15px; color: #666; }
+.controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px 24px; margin-top: 10px; }
+.control { display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: #000; }
+.control strong { font-weight: 400; }
+select, .fixed-value {
+  font: 12px Arial, sans-serif; height: 28px; min-width: 240px; padding: 4px 6px;
+  border: 1px solid #aaa; border-radius: 4px; background: #fff;
+}
+.fixed-value { min-width: 120px; display: flex; align-items: center; background: #f4f4f4; color: #555; }
+#status { min-height: 16px; font-size: 11px; color: #666; }
+#message { display: none; margin: 0 16px 8px; padding: 8px 12px; border-radius: 4px; flex: none; }
+#message.warning { display: block; background: #fff7e0; border: 1px solid #e0c060; color: #5c4800; }
+#message.error { display: block; background: #fdecea; border: 1px solid #d9827a; color: #7d1a14; }
+#message button { margin-left: 10px; font: inherit; padding: 2px 10px; cursor: pointer; }
+main { flex: 1; min-height: 0; overflow: auto; border-top: 1px solid #ddd; }
+main.loading table { opacity: 0.45; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1000px; }
+thead th {
+  position: sticky; top: 0; z-index: 2; background: #fff; font-size: 11px; text-align: center;
+  padding: 6px 8px; border: 1px solid #333; border-width: 0 1px 1px 0;
+}
+thead th:first-child { left: 0; z-index: 3; text-align: left; white-space: nowrap; width: 300px; }
+tbody th, tbody td { border-bottom: 1px dashed #aaa; padding: 3px 8px; background: #fff; }
+tbody th { position: sticky; left: 0; z-index: 1; text-align: left; font-weight: 400; white-space: nowrap; }
+tbody th.blue { color: #397aac; }
+tbody td { text-align: right; white-space: nowrap; color: #333; font-variant-numeric: tabular-nums; }
+tbody tr:hover th, tbody tr:hover td { background: #eef4f9; }
+tr.section th { border-bottom: 1px dashed #aaa; color: #444; font-weight: 700; padding-top: 5px; }
+/* Keeps a heading readable when the table is scrolled sideways. */
+tr.section span { position: sticky; left: 10px; }
+tr.section:hover th { background: #fff; }
+footer { flex: none; padding: 8px 16px; font-size: 10px; font-style: italic; color: #636163; border-top: 1px solid #ddd; }
+footer p { margin: 0 0 2px; }
+@media print {
+  html, body { height: auto; display: block; }
+  main { overflow: visible; border: 0; }
+  thead th, tbody th { position: static; }
+  table { min-width: 0; font-size: 9px; }
+  .band { display: none; }
+}
